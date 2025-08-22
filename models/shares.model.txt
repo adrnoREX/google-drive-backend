@@ -1,0 +1,10 @@
+CREATE TABLE shares (
+    id BIGSERIAL PRIMARY KEY,
+    file_id BIGINT REFERENCES files(id) ON DELETE CASCADE,
+    share_token UUID DEFAULT gen_random_uuid(),
+    is_public BOOLEAN DEFAULT false,
+    shared_with TEXT[],            
+    created_at TIMESTAMP DEFAULT now(),
+    expires_at TIMESTAMP,          
+    created_by UUID
+);
