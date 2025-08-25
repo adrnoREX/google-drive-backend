@@ -1,0 +1,11 @@
+CREATE TABLE files (
+    id BIGSERIAL PRIMARY KEY,
+    storage_path TEXT NOT NULL,         
+    display_name TEXT NOT NULL,          
+    uploaded_by UUID,                    
+    size BIGINT,
+    mime_type TEXT,
+    created_at TIMESTAMP DEFAULT now(),
+    updated_at TIMESTAMP DEFAULT now(),
+    is_deleted BOOLEAN DEFAULT false
+);

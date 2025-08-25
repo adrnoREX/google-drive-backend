@@ -1,4 +1,5 @@
 import { supabase } from "../config/supabaseClient.js";
+import { v4 as uuidv4 } from 'uuid';
 
 // Upload Files
 export const uploadfile =  async (req, res) => {
@@ -266,6 +267,7 @@ export const copy = async (req, res) => {
         size: originalFile.size,
         mime_type: originalFile.mime_type,
         is_deleted: false,
+        folder_id: originalFile.folder_id || null,
       },
     ])
     .select();
@@ -382,7 +384,7 @@ export const access = async (req, res) => {
   }
 };
 
-// Search API
+// Search 
 export const search = async (req, res) => {
   const { q } = req.query;
 
