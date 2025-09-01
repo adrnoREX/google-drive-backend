@@ -158,24 +158,6 @@ export const fetch = async (req, res) => {
   }
 };
 
-// // Empty Trash for Folders (Hard Delete)
-//  async (req, res) => {
-//   try {
-//     const { error } = await supabase
-//       .from("folders")
-//       .delete()
-//       .eq("is_deleted", true); 
-
-//     if (error) throw error;
-
-//     res.json({ message: "All trashed folders deleted permanently" });
-//   } catch (err) {
-//     console.error("Error emptying folder trash:", err);
-//     res.status(500).json({ error: "Failed to empty folder trash" });
-//   }
-// });
-
-
 // Restore Folder from Trash
 export const restore = async (req, res) => {
   const { id } = req.params;
